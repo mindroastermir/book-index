@@ -1,3 +1,6 @@
+import data from './data.json' assert {type: 'json'};
+console.log('data: ', data);        
+
 class MyNavigation extends HTMLElement{
     constructor(){
         super();
@@ -125,6 +128,38 @@ class MyFooter extends HTMLElement{
     }
 }
 
+class Rows extends HTMLElement{
+    constructor(){
+        super();
+    }
+
+    connectedCallback(){
+        this.render();
+    }
+
+    render(){
+        /*
+        let rows = data.map(row => {
+            "<li>row.id</li>";
+        });
+        */
+        this.innerHTML = `
+        <tr>
+            <td>${data[0].id}</td>
+            <td>${data[0].bookNo}</td>
+            <td>${data[0].author}</td>
+            <td>${data[0].introduction}</td>
+            <td>${data[0].name}</td>
+            <td>${data[0].link}</td>
+            <td>${data[0].publisher}</td>
+            <td>${data[0].thumbUrl}</td>
+        </tr>
+        `;
+        
+    }
+}
+
 customElements.define('my-navigation', MyNavigation);
 customElements.define('my-header', MyHeader);
-customElements.define('my-footer', MyFooter)
+customElements.define('my-footer', MyFooter);
+customElements.define('my-rows', Rows);
