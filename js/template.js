@@ -28,7 +28,7 @@ class MyHeader extends HTMLElement{
                 }
                 @font-face {
                     font-family: 'mehar';
-                    src: url('/assets/mehar.ttf');
+                    src: url('../../assets/mehar.ttf');
                 }
                 table tr td{
                     font-family: mehar;
