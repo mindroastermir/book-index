@@ -142,39 +142,34 @@ class Rows extends HTMLElement{
     }
 
     render(){
-        /*
-        let rows = data.map(row => {
-            "<li>row.id</li>";
-        });
-        */
-        
-        this.innerHTML = `
-        
-        `;
-        
-        this.innerHTML = `
+        const tableHead = `
         <table class='table w-100 rtl'>
-            <tr>
-                <th>#</th>
-                <th>Book #</th>
-                <th>Book Name</th>
-                <th>Author</th>
-                <th>Introduction</th>
-                <th>Publisher</th>
-                <th>Img</th>
-            </tr>
-            <tr>
-                <td>${data[0].id}</td>
-                <td><a target='_blank' href='index/${data[0].bookNo}.html'>${data[0].bookNo}</a></td>
-                <td><a target='_blank' href='${data[0].link}'>${data[0].name}</a></td>
-                <td>${data[0].author}</td>
-                <td>${data[0].introduction.substring(0,10)}</td>
-                <td>${data[0].publisher}</td>
-                <td><img src='${data[0].thumbUrl}' /></td>
-            </tr>
-        </table>
-        `;
-        
+        <tr>
+            <th>#</th>
+            <th>Book #</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Introduction</th>
+            <th>Publisher</th>
+            <th>Img</th>
+        </tr>`;
+        let finalText = '';
+        finalText = finalText + tableHead;
+        data.map(row => {
+            const row1 =
+            `<tr>
+                <td>${row.id}</td>
+                <td><a target='_blank' href='index/${row.bookNo}.html'>${row.bookNo}</a></td>
+                <td><a target='_blank' href='${row.link}'>${row.name}</a></td>
+                <td>${row.author}</td>
+                <td>${row.introduction.substring(0,10)}</td>
+                <td>${row.publisher}</td>
+                <td><img src='${row.thumbUrl}' /></td>
+            </tr>`;
+            finalText = finalText + row1;
+        });
+        finalText = finalText + `</table>`;
+        this.innerHTML = finalText;
     }
 }
 
