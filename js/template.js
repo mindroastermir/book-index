@@ -1,6 +1,41 @@
 import data from './data.json' assert {type: 'json'};
 console.log('data: ', data);        
 
+
+
+class MyHeader extends HTMLElement{
+    constructor(){
+        super();
+    }
+    connectedCallback(){
+        this.render();
+    }
+    render(){
+        this.innerHTML = `
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>links</title>
+            <!-- Font Awesome -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+            <!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+            <!-- MDB -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+            <style>
+                .rtl{
+                    direction: rtl;
+                }
+            </style>
+        </head>
+        <body>`;
+    }
+}
+
 class MyNavigation extends HTMLElement{
     constructor(){
         super();
@@ -82,37 +117,6 @@ class MyNavigation extends HTMLElement{
     }
 }
 
-class MyHeader extends HTMLElement{
-    constructor(){
-        super();
-    }
-    connectedCallback(){
-        this.render();
-    }
-    render(){
-        this.innerHTML = `
-        <!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>links</title>
-            <!-- Font Awesome -->
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-            <!-- Google Fonts -->
-            <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-            <!-- MDB -->
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
-            <style>
-
-            </style>
-        </head>
-        <body>`;
-    }
-}
-
 class MyFooter extends HTMLElement{
     constructor(){
         super();
@@ -143,17 +147,32 @@ class Rows extends HTMLElement{
             "<li>row.id</li>";
         });
         */
+        
         this.innerHTML = `
-        <tr>
-            <td>${data[0].id}</td>
-            <td>${data[0].bookNo}</td>
-            <td>${data[0].author}</td>
-            <td>${data[0].introduction}</td>
-            <td>${data[0].name}</td>
-            <td>${data[0].link}</td>
-            <td>${data[0].publisher}</td>
-            <td>${data[0].thumbUrl}</td>
-        </tr>
+        
+        `;
+        
+        this.innerHTML = `
+        <table class='table w-100 rtl'>
+            <tr>
+                <th>#</th>
+                <th>Book #</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Introduction</th>
+                <th>Publisher</th>
+                <th>Img</th>
+            </tr>
+            <tr>
+                <td>${data[0].id}</td>
+                <td><a target='_blank' href='index/${data[0].bookNo}.html'>${data[0].bookNo}</a></td>
+                <td><a target='_blank' href='${data[0].link}'>${data[0].name}</a></td>
+                <td>${data[0].author}</td>
+                <td>${data[0].introduction.substring(0,10)}</td>
+                <td>${data[0].publisher}</td>
+                <td><img src='${data[0].thumbUrl}' /></td>
+            </tr>
+        </table>
         `;
         
     }
