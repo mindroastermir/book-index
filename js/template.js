@@ -1,7 +1,4 @@
 import data from './data.json' assert {type: 'json'};
-console.log('data: ', data);        
-
-
 
 class MyHeader extends HTMLElement{
     constructor(){
