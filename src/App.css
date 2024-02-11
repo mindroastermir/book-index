@@ -1,3 +1,16 @@
 .rtl {
     direction: rtl;
 }
+
+@font-face {
+    font-family: 'mehar';
+    src: url('./assets//font/mehar.ttf');
+  }
+  table tr th{
+    font-family: 'arial';
+    background-color: #ddd;
+  }
+  table tr td{
+    font-family: mehar;
+    font-size: 24px;
+  }
