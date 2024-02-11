@@ -1,17 +1,14 @@
 import './App.css';
+import Box from './components/box'
+import Navigation from './components/Navigation'
 
-function Box(){
-  return(
-      <h1>Box Component</h1>
-  );
-}
 
 function App() {
   return (
     <div className="App">
-      <h1>React Book Index</h1>
-      <h2>This is a test page</h2>
-      <Box/>
+      <Navigation />
+      <Box />
+      
     </div>
   );
 }
