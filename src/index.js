@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     path: "/index2213",
     element: <Index2213 />,
   }
-]);
+], {basename: "/book-index"});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
