@@ -1,5 +1,5 @@
 import './App.css';
-import Box from './components/box'
+import Table from './components/Table'
 import Navigation from './components/Navigation'
 
 
@@ -7,8 +7,7 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <Box />
-      
+      <Table />
     </div>
   );
 }
