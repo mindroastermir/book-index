@@ -5,7 +5,7 @@ function Table(){
         return <tr>
             <td>{book.id}</td>
             <td><a target='_blank' rel='noreferrer' href={book.link}>{book.bookNo}</a></td>
-            <td><a target='_blank' rel='noreferrer' href={`index${book.bookNo}`}>{book.name}</a></td>
+            <td><a rel='noreferrer' href={`/index${book.bookNo}`}>{book.name}</a></td>
             <td>{book.author}</td>
             <td>{book.pageCount}</td>
             <td><img src={book.thumbUrl} alt='thumnail'/></td>

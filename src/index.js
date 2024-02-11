@@ -6,16 +6,20 @@ import Index2213 from './components/index2213';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/index2213",
-    element: <Index2213 />,
+    children: [
+      {
+        path: "/index2213",
+        element: <Index2213 />,
+      }
+    ]
   }
-], {basename: "/book-index"});
+  
+];
+const router = createBrowserRouter(routes, {basename: "/book-index"});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
