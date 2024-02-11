@@ -5,6 +5,8 @@ import App from './App';
 import Index2213 from './components/index2213';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import Index4806 from './components/index4806';
+import Index6292 from './components/index6292';
 
 const routes = [
   {
@@ -16,6 +18,12 @@ const routes = [
   },{
     path: "/index2213",
     element: <Index2213 />,
+  },{
+    path: "/index4806",
+    element: <Index4806 />,
+  },{
+    path: "/index6292",
+    element: <Index6292 />,
   }
   
 ];
