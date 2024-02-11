@@ -11,11 +11,11 @@ const routes = [
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "/index2213",
-        element: <Index2213 />,
-      }
+      
     ]
+  },{
+    path: "/index2213",
+    element: <Index2213 />,
   }
   
 ];
